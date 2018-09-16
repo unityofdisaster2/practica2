@@ -1,3 +1,9 @@
+/*
+Archivo de pruebas
+Autores: Raymundo Rosales Reyes, Martin, José Manuel
+version: v1.0.0
+*/
+
 #include "busqueda.h"
 #include <stdio.h>
 #include <stdlib.h>
