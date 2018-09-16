@@ -42,7 +42,7 @@ int main(int argc, char **argv)
         default:
            break;
     }
-    printf("cambio sutil amiguito");
+    
     return 0;
 }
 
