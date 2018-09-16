@@ -42,7 +42,11 @@ int main(int argc, char **argv)
         default:
            break;
     }
+<<<<<<< HEAD
     
+=======
+    printf("cambio sutil amiguito");
+>>>>>>> eef7dace3395a51ae74422c1d6240066e676f9df
     return 0;
 }
 
