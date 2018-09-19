@@ -9,13 +9,25 @@ n=(100 1000 5000 10000 50000 100000 200000 400000 600000
 800000 1000000 2000000 3000000 4000000 5000000 6000000
 7000000 8000000 9000000 10000000)
 
+algoritmos=(1 2 3 4 5 6)
 
-for x in ${A[*]}
+for x in ${algoritmos[*]}
 do
-	for y in ${n[*]}
+	for y in ${A[*]}
 	do
-		#
-		echo "$x $y"
+		for z in ${n[*]}
+		do
+		if [ $x -gt 3 ]
+		then
+			echo "./programa $x $y $z < numeros10millones.txt"
+		else
+			echo "./programa $x $y $z < 10millones.txt"
+		fi
+		#llamada a programa pasando como argumentos x,y,z
+		
+		done
+		 
+		
 	done
 done
 

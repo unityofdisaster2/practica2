@@ -10,7 +10,11 @@ typedef struct nodo
 
 typedef nodo *apu_raiz;
 
-
+typedef struct estructura
+{
+	int n,inicio,fin,num_hilo,numero_buscado;
+	int *arreglo;
+}valores_hilo;
 
 
 int busqueda_lineal(int *arreglo, int n,int numero_buscado);
@@ -28,9 +32,9 @@ void tree_search(apu_raiz *raiz, int numero_buscado,int n);
 
 
 
-/*
-void *busqueda_lineal_hilos(void *estructura);
 
+void *busqueda_lineal_hilos(void *valor);
+/*
 void *busqueda_binaria_hilos(void *estructura);
 
 void *tree_search(void *estructura);

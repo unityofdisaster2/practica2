@@ -1,5 +1,9 @@
 #include "busqueda.h"
 
+int min = 0;
+int max = 0;
+
+
 int busqueda_lineal(int *arreglo, int n,int numero_buscado)
 {
     int i,indice=-1,lock=0;
@@ -159,4 +163,28 @@ void tree_search(apu_raiz *raiz,int numero_buscado,int n)
         insertar(raiz,numero);
     }
     busca_nodo(raiz,numero_buscado);
+}
+
+
+
+
+/*
+variantes de busquedas con hilos
+*/
+void *busqueda_lineal_hilos(void *valor)
+{
+	int i;
+	min = max;
+	max = max + ((valores_hilo*)valor)->n/4; 
+	
+	
+	for(i=min; i<max;i++)
+	{
+		if(((valores_hilo*)valor)->arreglo[i] == ((valores_hilo*)valor)->numero_buscado)
+		{
+			printf("encontrado en %d\n",i);
+			break;
+		}
+	}
+	return 0;
 }

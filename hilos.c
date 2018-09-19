@@ -12,7 +12,7 @@ typedef struct estructura
 int min = 0;
 int max = 0;
 
-void *cuenta(void *valor)
+void *busqueda_lineal_hilos(void *valor)
 {
 	int i;
 	min = max;
@@ -50,10 +50,10 @@ int main(int argc, char **argv)
 	val_hilo->arreglo = arr;
 	val_hilo->inicio = 0;
 	val_hilo->fin = 16;
-	val_hilo->numero_buscado = 16;
+	val_hilo->numero_buscado = 10;
 	for(j = 0; j<4; j++)
 	{
-		pthread_create(&hilo[j],&atributos,cuenta,val_hilo);
+		pthread_create(&hilo[j],&atributos,busqueda_lineal_hilos,val_hilo);
 	}
 
 	for(j = 0; j<4; j++)
