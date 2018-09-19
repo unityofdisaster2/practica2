@@ -25,10 +25,10 @@ int busqueda_binaria(int *arreglo, int inicio, int fin, int numero_buscado);
 void insertar(apu_raiz *raiz,int numero);
 
 
-void busca_nodo(apu_raiz *raiz,int numero_buscado);
+int busca_nodo(apu_raiz *raiz,int numero_buscado);
 
 
-void tree_search(apu_raiz *raiz, int numero_buscado,int n);
+int tree_search(apu_raiz *raiz, int numero_buscado,int n);
 
 
 

@@ -8,9 +8,18 @@ version: v1.0.0
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+
+/*cuando se va a a ejecutar programa en el prompt se debe ingresar como argumento opt
+lo siguiente: 
+1 tamanio del arreglo
+2 numero buscado
+3 indice del algoritmo que se desea utilizar
+4 archivo con los numeros en el que requiera cada algoritmo
+ejemplo:  ./prueba_busqueda 1000 322486 1 < 10millones.txt
+*/
 int main(int argc, char **argv)
 {
-    int opcion,tamanio,numero_buscado,i,j;
+    int opcion,tamanio,numero_buscado,i,j,respuesta;
     int *arreglo;
     
     apu_raiz raiz;
@@ -34,13 +43,37 @@ int main(int argc, char **argv)
     switch(opcion)
     {
         case 1:
-            printf("encontrado en: %d\n",busqueda_lineal(arreglo,tamanio,numero_buscado));
-            break;
+            respuesta = busqueda_lineal(arreglo,tamanio,numero_buscado);
+            if (respuesta != -1)
+            {
+                printf("numero encontrado en indice: %d\n",respuesta);
+            }
+            else
+            {
+                printf("numero no encontrado\n");
+            }
+        break;
         case 2:
-            printf("encontrado en: %d\n",busqueda_binaria(arreglo,0,tamanio,numero_buscado));
+            respuesta = busqueda_binaria(arreglo,0,tamanio,numero_buscado);
+            if (respuesta != -1)
+            {
+                printf("numero encontrado en indice: %d\n",respuesta);
+            }
+            else
+            {
+                printf("numero no encontrado\n");
+            }
             break;
         case 3:
-            tree_search(&raiz,numero_buscado,tamanio);
+            respuesta = tree_search(&raiz,numero_buscado,tamanio);
+            if (respuesta != -1)
+            {
+                printf("numero encontrado en indice: %d\n",respuesta);
+            }
+            else
+            {
+                printf("numero no encontrado\n");
+            }
             break;
         case 4:
             //primer caso utilizando hilos
