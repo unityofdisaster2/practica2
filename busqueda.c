@@ -1,8 +1,9 @@
 #include "busqueda.h"
 
+
 int min = 0;
 int max = 0;
-
+int respuesta_hilo=-1;
 
 int busqueda_lineal(int *arreglo, int n,int numero_buscado)
 {
@@ -179,15 +180,13 @@ void *busqueda_lineal_hilos(void *valor)
 	int i;
 	min = max;
 	max = max + ((valores_hilo*)valor)->n/4; 
-	
-	
 	for(i=min; i<max;i++)
 	{
 		if(((valores_hilo*)valor)->arreglo[i] == ((valores_hilo*)valor)->numero_buscado)
 		{
-			printf("encontrado en %d\n",i);
+			((valores_hilo*)valor)->respuesta = 1;
 			break;
 		}
 	}
-	return 0;
+    pthread_exit(NULL);
 }

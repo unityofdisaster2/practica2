@@ -87,6 +87,7 @@ int main(int argc, char **argv)
             val_hilo->inicio = 0;
             val_hilo->fin = tamanio;
             val_hilo->numero_buscado = numero_buscado;
+            val_hilo->respuesta = -1;
             for(j = 0; j<4; j++)
             {
                 pthread_create(&hilo[j],&atributos,busqueda_lineal_hilos,val_hilo);
@@ -95,6 +96,7 @@ int main(int argc, char **argv)
             {
                 pthread_join(hilo[j],NULL);		
             }            
+            printf("la respuesta del hilo es %d\n",val_hilo->respuesta);
             break;
         case 5:
             break;

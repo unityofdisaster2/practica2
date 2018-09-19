@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <pthread.h>
 
 typedef struct nodo
 {
@@ -12,7 +12,7 @@ typedef nodo *apu_raiz;
 
 typedef struct estructura
 {
-	int n,inicio,fin,num_hilo,numero_buscado;
+	int n,inicio,fin,num_hilo,numero_buscado,respuesta;
 	int *arreglo;
 }valores_hilo;
 
