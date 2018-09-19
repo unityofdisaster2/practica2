@@ -117,10 +117,10 @@ void insertar(apu_raiz *raiz,int numero)
 }
 
 
-void busca_nodo(apu_raiz *raiz, int numero_buscado)
+int busca_nodo(apu_raiz *raiz, int numero_buscado)
 {
     apu_raiz nodo_viajero;
-    int condicion_paro = 0;
+    int condicion_paro = 0,respuesta=-1;
     nodo_viajero = malloc(sizeof(nodo));
     nodo_viajero = *raiz;
     while((nodo_viajero != NULL) && (condicion_paro!=1))
@@ -128,6 +128,7 @@ void busca_nodo(apu_raiz *raiz, int numero_buscado)
         if(nodo_viajero->valor == numero_buscado)
         {
             printf("encontrado\n");
+            respuesta = 1;
             condicion_paro = 1;
         }
         if(numero_buscado <= nodo_viajero->valor)
@@ -153,16 +154,18 @@ void busca_nodo(apu_raiz *raiz, int numero_buscado)
             }
         }
     }
+    return respuesta;
 }
-void tree_search(apu_raiz *raiz,int numero_buscado,int n)    
+int tree_search(apu_raiz *raiz,int numero_buscado,int n)    
 {
-    int i,numero;
+    int i,numero,r;
     for(i = 0; i<n;i++)
     {
         scanf("%d",&numero);
         insertar(raiz,numero);
     }
-    busca_nodo(raiz,numero_buscado);
+    r = busca_nodo(raiz,numero_buscado);
+    return r;
 }
 
 
