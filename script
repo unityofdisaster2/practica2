@@ -1,5 +1,6 @@
 #!/bin/bash
-
+echo "algoritmo utilizado,numero a buscar,tamaño de n,tiempo real,encontrado" > registro_tiempo.csv
+ 
 A=(322486 14700764 3128036 6337399 61396
 10393545 2147445644 1295390003 450057883 187645041
 1980098116 152503 5000 1493283650 214826 1843349527
@@ -9,7 +10,7 @@ n=(100 1000 5000 10000 50000 100000 200000 400000 600000
 800000 1000000 2000000 3000000 4000000 5000000 6000000
 7000000 8000000 9000000 10000000)
 
-algoritmos=(1 2 3 4 5 6)
+algoritmos=(1 2 3 4 5)
 
 for x in ${algoritmos[*]}
 do
@@ -18,16 +19,16 @@ do
 		for z in ${n[*]}
 		do
 		if [ $x -gt 3 ]
+		
 		then
-			echo "./programa $x $y $z < numeros10millones.txt"
-		else
-			echo "./programa $x $y $z < 10millones.txt"
-		fi
 		#llamada a programa pasando como argumentos x,y,z
-		
+			./prueba $z $y $x < numeros10millones.txt >> registro_tiempo.csv
+		else
+			./prueba $z $y $x< 10millones.txt >> registro_tiempo.csv
+		fi
 		done
-		 
 		
+		echo " , , , , " >> registro_tiempo.csv		
 	done
 done
 

@@ -1,7 +1,17 @@
+/*
+Definiciones de algoritmos de busqueda 
+fecha: 30-septiembre-2018
+version: 1.0.2
+cambios respecto a version anterior: se agrega version de hilos de busqueda binaria
+Autores: Raymundo Rosales Reyes, Martin Hernandez Cruz, Jose Manuel Martinez Quevedo 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 
+
+//estructura basica que modela el nodo de un arbol binario
 typedef struct nodo
 {
     int valor;
@@ -10,32 +20,58 @@ typedef struct nodo
 
 typedef nodo *apu_raiz;
 
+
+//estructura que sera utilizada como argumento de las funciones que requieren manejo de hilos
 typedef struct estructura
 {
-	int n,inicio,fin,num_hilo,numero_buscado,respuesta;
+	int n,numero_buscado,respuesta;
 	int *arreglo;
 }valores_hilo;
 
-
+/*
+funcion que recorre un arreglo de forma lineal hasta encontrar un valor solicitado.
+recibe como argumento un arreglo con su tamano n y el numero que se desea buscar. 
+*/
 int busqueda_lineal(int *arreglo, int n,int numero_buscado);
 
+
+
+/*
+funcion que recorre un arreglo dividiendolo en subarreglos hasta encontrar un valor solicitado.
+recibe como argumento un arreglo de numeros, el indice en el que inicia, indice final y el numero 
+que se desea buscar.
+*/
 int busqueda_binaria(int *arreglo, int inicio, int fin, int numero_buscado);
 
 
+/*
+funcion para insertar valores en un arbol binario.
+recibe como argumento la raiz del arbol y el numero que se desea agregar
+*/
 void insertar(apu_raiz *raiz,int numero);
 
-
+/*
+funcion que realiza la busqueda de un valor en los nodos del arbol.
+recibe como argumento la raiz del arbol y el numero que se desea buscar.
+*/
 int busca_nodo(apu_raiz *raiz,int numero_buscado);
 
-
+/*
+funcion que implementa la insercion y busqueda de valores en un arbol binario.
+recibe como argumento la raiz del arbol, el numero que se desea buscar y la cantidad
+de numeros insertados en el arbol
+*/
 int tree_search(apu_raiz *raiz, int numero_buscado,int n);
 
 
 
-
-void *busqueda_lineal_hilos(void *valor);
 /*
-void *busqueda_binaria_hilos(void *estructura);
-
-void *tree_search(void *estructura);
+version de algoritmos de busqueda implementadas con hilos
+reciben como argumento una estructura que contiene los valores necesarios para 
+que el algoritmo de busqueda funcione de forma correcta.
 */
+void *busqueda_lineal_hilos(void *valor);
+
+int busqueda_main(int *arreglo,int n,int numero_buscado);
+
+void  *busqueda_binaria_hilos(void *val_hilo);
