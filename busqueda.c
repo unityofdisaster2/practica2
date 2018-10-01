@@ -185,7 +185,7 @@ int busca_nodo(apu_raiz *raiz, int numero_buscado)
             respuesta = 1;
             condicion_paro = 1;
         }
-        if(numero_buscado <= nodo_viajero->valor)
+        if(numero_buscado < nodo_viajero->valor)
         {
             if(nodo_viajero->izq != NULL)
             {
@@ -309,7 +309,6 @@ void  *busqueda_binaria_hilos(void *val_hilo)
         if (((valores_hilo*)val_hilo)->arreglo[indice] == ((valores_hilo*)val_hilo)->numero_buscado)
             { 
                 ((valores_hilo*)val_hilo)->respuesta = 1;
-                printf("%d\n",indice);
                 return 0;
             } 
   

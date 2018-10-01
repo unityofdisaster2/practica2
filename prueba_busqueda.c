@@ -104,11 +104,11 @@ int main(int argc, char **argv)
                 val_hilo->arreglo = arreglo;
                 val_hilo->numero_buscado = numero_buscado;
                 val_hilo->respuesta = -1;
-                for(j = 0; j<4; j++)
+                for(j = 0; j<2; j++)
                 {
-                    pthread_create(&hilo[j],&atributos,busqueda_lineal_hilos,val_hilo);
+                    pthread_create(&hilo[j],&atributos,busqueda_binaria_hilos,val_hilo);
                 }
-                for(j = 0; j<4; j++)
+                for(j = 0; j<2; j++)
                 {
                     pthread_join(hilo[j],NULL);		
                 }            
