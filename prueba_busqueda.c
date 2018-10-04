@@ -22,7 +22,7 @@ ejemplo:  ./prueba_busqueda 1000 322486 1 < 10millones.txt
 */
 int main(int argc, char **argv)
 {
-    int opcion,tamanio,numero_buscado,i,j,respuesta;
+    int opcion,tamanio,numero_buscado,i,j,respuesta,val_arbol;
     int *arreglo;
 
     double utime0, stime0, wtime0,utime1, stime1, wtime1; //Variables para medición de tiempos
@@ -67,7 +67,13 @@ int main(int argc, char **argv)
             }
         break;
         case 3:
-            respuesta = tree_search(&raiz,numero_buscado,tamanio);
+            for(i = 0;i<tamanio;i++)
+            {
+                scanf("%d",&val_arbol);
+                insertar(&raiz,val_arbol);
+            }
+            uswtime(&utime0, &stime0, &wtime0);
+            respuesta = busca_nodo(&raiz,numero_buscado);
         break;
         case 4:
             //se inicializan variables que se utilizaran en la funcion de hilos

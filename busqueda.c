@@ -218,17 +218,6 @@ se realiza la busqueda de un valor en sus nodos.
 cabe destacar que se deben ingresar los numeros en desorden ya que de lo contrario
 el desempeño temporal del arbol sera de forma lineal. 
 */
-int tree_search(apu_raiz *raiz,int numero_buscado,int n)    
-{
-    int i,numero,r;
-    for(i = 0; i<n;i++)
-    {
-        scanf("%d",&numero);
-        insertar(raiz,numero);
-    }
-    r = busca_nodo(raiz,numero_buscado);
-    return r;
-}
 
 
 

@@ -56,12 +56,7 @@ recibe como argumento la raiz del arbol y el numero que se desea buscar.
 */
 int busca_nodo(apu_raiz *raiz,int numero_buscado);
 
-/*
-funcion que implementa la insercion y busqueda de valores en un arbol binario.
-recibe como argumento la raiz del arbol, el numero que se desea buscar y la cantidad
-de numeros insertados en el arbol
-*/
-int tree_search(apu_raiz *raiz, int numero_buscado,int n);
+
 
 
 
